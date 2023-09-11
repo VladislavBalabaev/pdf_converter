@@ -10,6 +10,10 @@ if __name__ == '__main__':
         raise FileNotFoundError('Please, add your images to newly created "to_convert" directory.')
 
     images = sorted(os.listdir(path))
+
+    if not images:
+        raise FileNotFoundError('Please, add your images to "to_convert" directory. The directory is empty.')
+
     images = [Image.open(path / f) for f in images]
 
     pdf_name = input("write name of the file> ")
