@@ -2,10 +2,11 @@ import os
 from PIL import Image
 from pathlib import Path
 
-path = Path('to_convert')
+path = Path(__file__).parent / 'to_convert'
 
 if __name__ == '__main__':
     if not path.is_dir():
+        print(path)
         path.mkdir(parents=True, exist_ok=True)
         raise FileNotFoundError('Please, add your images to newly created "to_convert" directory.')
 
